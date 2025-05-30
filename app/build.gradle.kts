@@ -42,6 +42,9 @@ android {
 }
 
 dependencies {
+  implementation("androidx.paging:paging-runtime:3.2.1")
+  implementation("io.coil-kt:coil-compose:2.5.0")
+  implementation("androidx.paging:paging-compose:3.2.1")
   implementation("androidx.fragment:fragment-ktx:1.8.2")
   implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
   implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.4")
