@@ -14,7 +14,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.neu.mobileapplicationdevelopment202430.R
 import com.neu.mobileapplicationdevelopment202430.data.staticProductList
 
 @Composable
@@ -22,7 +24,7 @@ fun ProductListScreen() {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Product List") },
+                title = { Text(stringResource(R.string.product_list_title)) },
                 backgroundColor = Color(0xFF6200EE)
             )
         }
@@ -41,7 +43,7 @@ fun ProductListScreen() {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    "My Food and Equipments",
+                    stringResource(R.string.header_title),
                     color = Color.Black,
                     modifier = Modifier.padding(start = 16.dp)
                 )
