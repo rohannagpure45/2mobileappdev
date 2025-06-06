@@ -6,4 +6,7 @@
     <string name="login_error_empty">Please enter username and password.</string>
     <string name="product_list_title">Product List</string>
     <string name="header_title">My Food and Equipments</string>
+    <string name="no_products">No products available</string>
+    <string name="load_error">Failed to load products.</string>
+
 </resources>

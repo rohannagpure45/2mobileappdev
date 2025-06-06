@@ -11,7 +11,7 @@
     >
 
     <ImageView
-        android:id="@+id/imgProduct"
+        android:id="@+id/img"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
@@ -28,7 +28,7 @@
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:paddingStart="8dp"
-        app:layout_constraintTop_toBottomOf="@id/imgProduct"
+        app:layout_constraintTop_toBottomOf="@id/img"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
