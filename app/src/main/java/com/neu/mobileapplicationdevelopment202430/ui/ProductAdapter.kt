@@ -1,35 +1,46 @@
 package com.neu.mobileapplicationdevelopment202430.ui
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import coil.load
+import com.neu.mobileapplicationdevelopment202430.data.Product
 import com.neu.mobileapplicationdevelopment202430.databinding.ItemProductBinding
-import com.neu.mobileapplicationdevelopment202430.model.Product
 
-class ProductAdapter(private val list: MutableList<Product>) :
-    RecyclerView.Adapter<ProductAdapter.Holder>() {
+class ProductAdapter(private var products: List<Product> = emptyList()) :
+    RecyclerView.Adapter<ProductAdapter.VH>() {
 
-    class Holder(val binding: ItemProductBinding) : RecyclerView.ViewHolder(binding.root)
+    class VH(val binding: ItemProductBinding) : RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder =
-        Holder(ItemProductBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH =
+        VH(ItemProductBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
-    override fun getItemCount() = list.size
-
-    override fun onBindViewHolder(holder: Holder, position: Int) {
-        val p = list[position]
+    override fun onBindViewHolder(holder: VH, position: Int) {
+        val p = products[position]
         with(holder.binding) {
-            tvName.text = p.name
-            tvPrice.text = "$${p.price.filter { it.isDigit() || it == '.' }}"
-            tvExtra.text = p.expiryDate ?: "${p.warranty} warranty"
-            Glide.with(root).load(p.image).into(img)
+            productImage.load(p.imageUrl)
+            productName.text = p.name
+            if (p.expiryDate != null) {
+                date.text = p.expiryDate
+                date.visibility = View.VISIBLE
+            } else {
+                date.visibility = View.GONE
+            }
+            if (p.warranty != null) {
+                warranty.text = "${p.warranty} years"
+                warranty.visibility = View.VISIBLE
+            } else {
+                warranty.visibility = View.GONE
+            }
+            price.text = "$${p.price}"
         }
     }
 
-    fun updateData(newList: List<Product>) {
-        list.clear()
-        list.addAll(newList)
+    override fun getItemCount(): Int = products.size
+
+    fun updateProducts(newProducts: List<Product>) {
+        products = newProducts
         notifyDataSetChanged()
     }
 }

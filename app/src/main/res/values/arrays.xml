@@ -1,6 +1,8 @@
 <resources>
     <string-array name="sort_options">
-        <item>Price: Low to High</item>
-        <item>Price: High to Low</item>
+        <item>A → Z</item>
+        <item>Z → A</item>
+        <item>Price: Low → High</item>
+        <item>Price: High → Low</item>
     </string-array>
 </resources>

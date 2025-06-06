@@ -1,7 +1,20 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_sort"
-        android:title="Sort"
-        android:icon="@android:drawable/ic_menu_sort_by_size"
-        android:showAsAction="always"/>
+        android:id="@+id/sort_name_asc"
+        android:title="A-Z"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/sort_name_desc"
+        android:title="Z-A"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/sort_price_asc"
+        android:title="Price: Low to High"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/sort_price_desc"
+        android:title="Price: High to Low"
+        app:showAsAction="never" />
 </menu>
